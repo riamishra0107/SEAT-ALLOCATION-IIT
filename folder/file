@@ -1,0 +1,70 @@
+package allocation;
+
+import java.io.IOException;
+import java.sql.SQLException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+/**
+ * Servlet implementation class AllocationServlet
+ */
+@WebServlet("/AllocationServlet")
+public class AllocationServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+   
+    public AllocationServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	{
+		
+		HttpSession session = request.getSession();
+		
+		String Full_name=request.getParameter("Full_name");
+		String emp_id =request.getParameter("emp_id");
+		String email=request.getParameter("email");
+		String floors=request.getParameter("floors");
+		String seat_num=request.getParameter("seat_num");
+		AllocatingSeats allocatingseats= new AllocatingSeats(Full_name,emp_id,email,floors,seat_num);
+		AllocationDatabase allocationdatabase=new AllocationDatabase();
+		try {
+		int a = allocationdatabase.insert(allocatingseats);
+		
+		
+		if(a == 1) {
+			
+			session.setAttribute("allocationSuccess", true);
+			response.sendRedirect("popuptryt.jsp");
+			
+		}
+		else
+		{
+			response.sendRedirect("popuptryt.jsp");
+			
+		}
+		
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+	}
+	
+
+
+}

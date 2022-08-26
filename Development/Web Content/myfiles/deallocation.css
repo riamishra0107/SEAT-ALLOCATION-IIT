@@ -1,0 +1,95 @@
+@charset "ISO-8859-1";
+
+@import
+	url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap')
+	;
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+
+.maincontainer {
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
+	background: hsl(30deg 100% 69%/ 79%);
+}
+
+.container {
+	margin: 146px;
+	text-align: left;
+	max-width: 700px;
+	width: 100%;
+	background: #ffff;
+	padding: 25px 30px;
+	border-radius: 5px;
+	box-shadow: 2px 2px 18px black;
+}
+
+.container title {
+	font-size: 25px;
+	font-size: 500;
+	position: relative;
+}
+
+.container .title::before {
+	content: "";
+	height: 3px;
+	width: 30px;
+	background: linear-gradient(120deg, #ffdead, #abcdef);
+	left: 0;
+	bottom: 0;
+	position: absolute;
+}
+
+.container form .user-details {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+form .user-details .input-box {
+	width: calc(100%/ 2 - 20px);
+	margin: 10px 0 12px 0;
+}
+
+.user-details .input-box .details {
+	font-weight: 500;
+	margin-bottom: 5px;
+	display: block;
+}
+
+.user-details .input-box input {
+	height: 45px;
+	width: 100%;
+	outline: none;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	padding-left: 15px;
+	font-size: 16px;
+}
+
+form .button {
+	height: 45px;
+	margin: 45px 0;
+}
+
+form .button input {
+	height: 100%;
+	width: 100%;
+	outline: none;
+	background: #000000;
+	color: rgb(255, 251, 251);
+	border: none;
+	font-size: 18px;
+	border-radius: 5px;
+	letter-spacing: 1px;
+}
+
+form .button input:hover {
+	background: #fd9972;
+}
